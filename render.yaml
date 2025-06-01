@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: reda-portfolio
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: ./build.sh
+    startCommand: ./start.sh
+    healthCheckPath: /
+    envVars:
+      - key: APP_KEY
+        generateValue: true
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: false
+      - key: APP_NAME
+        value: "Reda Yahyani Portfolio"
+      - key: LOG_LEVEL
+        value: error
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+
+databases:
+  - name: reda-portfolio-db
+    databaseName: reda_portfolio
+    user: reda_user
+    region: oregon
+    plan: free 

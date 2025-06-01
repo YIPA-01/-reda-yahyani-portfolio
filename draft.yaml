@@ -1,0 +1,204 @@
+name: portfolio-app
+stack:
+  backend: laravel
+  frontend: vue
+  database: mysql
+
+models:
+  Skill:
+    name: string
+    level: string
+    is_visible: boolean
+
+  Education:
+    school: string
+    degree: string
+    field: string
+    start_year: integer
+    end_year: integer
+    is_visible: boolean
+
+  Project:
+    title: string
+    description: text
+    technologies: json
+    main_image_id: foreignId:ProjectImage nullable
+    is_visible: boolean
+    images: hasMany:ProjectImage
+
+  ProjectImage:
+    project_id: foreignId
+    image_path: string
+
+  Message:
+    name: string
+    email: string
+    content: text
+    is_read: boolean default(false)
+
+  UserPreference:
+    user_id: foreignId
+    theme_mode: enum:light,dark default(light)
+    theme_color: enum:zinc,slate,stone,gray,neutral,red,rose,orange,green,blue,yellow,violet default(zinc)
+    border_radius: enum:0,0.25,0.5,0.75,1 default(0.5)
+
+controllers:
+  api:
+    Skill:
+      index: public
+    Education:
+      index: public
+    Project:
+      index: public
+      show: public
+      store: auth
+      update: auth
+      destroy: auth
+    Message:
+      store: public
+      index: auth
+      update: auth
+      destroy: auth
+    UserPreference:
+      show: auth
+      update: auth
+
+auth:
+  guard: sanctum
+  features: [login, logout]
+
+admin:
+  ui: vue
+  routes:
+    - /admin/login
+    - /admin/dashboard
+    - /admin/skills
+    - /admin/education
+    - /admin/projects
+    - /admin/messages
+  features:
+    - Image upload with preview and deletion
+    - Select main image from uploaded images (radio/select per image)
+    - Rich text input for project description
+    - Technologies input as taggable field
+    - Theme Customizer (Color, Border Radius, Light/Dark Toggle)
+
+frontend:
+  routes:
+    - /
+    - /about
+    - /projects
+    - /project/:id
+    - /contact
+
+ui:
+  framework: shadcn-vue
+  features:
+    - Light/Dark mode toggle
+    - Theme color picker (zinc, slate, stone, gray, neutral, red, rose, orange, green, blue, yellow, violet)
+    - Border radius selector (0, 0.25, 0.5, 0.75, 1)
+    - ProjectCard component with responsive design and customizable style
+    - ProjectCarousel using main and additional images
+    - ContactForm, SkillList, EducationList components
+
+storage:
+  uploads:
+    - projects/images
+
+
+Database Migrations
+Create migrations for all models (Skill, Education, Project, ProjectImage, Message, UserPreference)
+Set up foreign key relationships
+Add indexes for better performance
+Model Setup
+Create Eloquent models with relationships
+Add necessary traits and model methods
+Set up model factories for testing/seeding
+Phase 2: Authentication and Admin Foundation
+Admin Authentication
+Configure Sanctum
+Set up admin login routes and controllers
+Create admin middleware
+Basic Admin Layout
+Create admin layout component
+Implement theme customization store
+Set up admin navigation
+Phase 3: Admin Features Implementation
+Skills Management
+CRUD operations
+Visibility toggle
+List view with sorting
+Education Management
+CRUD operations
+Visibility toggle
+Timeline view
+Projects Management
+CRUD operations
+Image upload system
+Technology tags implementation
+Rich text editor integration
+Messages Management
+List view with read/unread status
+Message actions (mark as read, delete)
+Phase 4: Public Frontend Development
+Layout and Theme
+Create base layout
+Implement theme switcher
+Set up responsive navigation
+Page Components
+Home page
+About page with skills and education
+Projects listing page
+Project detail page
+Contact page
+Reusable Components
+ProjectCard
+ProjectCarousel
+SkillList
+EducationList
+ContactForm
+Phase 5: API Implementation
+Public Endpoints
+Skills listing
+Education listing
+Projects listing and detail
+Contact form submission
+Protected Endpoints
+Admin CRUD operations
+User preferences
+Message management
+Phase 6: Styling and UI Refinement
+Theme Implementation
+Light/dark mode
+Color schemes
+Border radius utilities
+Component Styling
+Responsive design
+Animations and transitions
+Loading states
+Phase 7: Testing and Optimization
+Basic Testing
+Route testing
+CRUD operations testing
+Form validation testing
+Performance
+Image optimization
+Code splitting
+Asset optimization
+Phase 8: Final Polish
+Code Cleanup
+Remove unused code
+Organize components
+Documentation update
+Final Testing
+Cross-browser testing
+Responsive design verification
+Feature verification
+For each phase, we will:
+Discuss the specific implementation details
+Show you the code changes
+Get your feedback
+Make any necessary adjustments
+Ensure everything works as expected before moving to the next phase
+Would you like to start with Phase 1? We can begin by setting up the database structure with migrations and models.
+let
