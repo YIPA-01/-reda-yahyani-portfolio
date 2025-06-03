@@ -4,7 +4,7 @@ import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/reda-yahyani-portfolio/', // Replace with your GitHub repository name
+  base: '/-reda-yahyani-portfolio/', // Fixed: Added the leading dash to match repository name
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
