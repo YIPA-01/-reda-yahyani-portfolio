@@ -1,23 +1,69 @@
-/.phpunit.cache
-/node_modules
-/public/build
+# Laravel specific
+/vendor/
+/node_modules/
 /public/hot
 /public/storage
 /storage/*.key
-/storage/pail
-/vendor
+/storage/logs
+/storage/framework/cache/data
+/storage/framework/cache/data/*
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+/bootstrap/cache
 .env
 .env.backup
-.env.production
-.phpactor.json
 .phpunit.result.cache
+docker-compose.override.yml
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-/auth.json
-/.fleet
-/.idea
-/.nova
-/.vscode
-/.zed
+
+# Firebase
+firebase-debug.log
+firebase-debug.*.log
+.firebase/
+.firebaserc
+firebase-service-account.json
+storage/app/firebase-credentials.json
+
+# Frontend build
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local  
+frontend/node_modules/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Functions
+functions/node_modules/
+functions/npm-debug.log
+functions/firebase-debug.log
+functions/firebase-debug.*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp

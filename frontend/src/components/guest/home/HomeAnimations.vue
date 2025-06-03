@@ -1,0 +1,312 @@
+<template>
+  <!-- This component only provides shared styles -->
+</template>
+
+<style scoped>
+/* Enhanced Keyframe Animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  33% { 
+    transform: translateY(-8px) rotate(1deg); 
+  }
+  66% { 
+    transform: translateY(-4px) rotate(-1deg); 
+  }
+}
+
+@keyframes float-random {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px); 
+  }
+  25% { 
+    transform: translateY(-15px) translateX(10px) rotate(2deg); 
+  }
+  50% { 
+    transform: translateY(-8px) translateX(-8px) rotate(-1deg); 
+  }
+  75% { 
+    transform: translateY(-12px) translateX(5px) rotate(1deg); 
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px); 
+  }
+  50% { 
+    transform: translateY(-10px) translateX(5px); 
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% { 
+    transform: translateY(0px) translateX(0px) scale(1); 
+  }
+  50% { 
+    transform: translateY(-20px) translateX(10px) scale(1.1); 
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); 
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); 
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.6; 
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fade-in-up {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px) scale(0.95);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes bounce-in {
+  0% { 
+    transform: scale(0.3); 
+    opacity: 0; 
+  }
+  50% { 
+    transform: scale(1.05); 
+  }
+  70% { 
+    transform: scale(0.9); 
+  }
+  100% { 
+    transform: scale(1); 
+    opacity: 1; 
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes slide-in-left {
+  from { 
+    opacity: 0; 
+    transform: translateX(-50px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from { 
+    opacity: 0; 
+    transform: translateX(50px);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateX(0);
+  }
+}
+
+@keyframes typewriter {
+  from { 
+    width: 0; 
+  }
+  to { 
+    width: 100%; 
+  }
+}
+
+@keyframes grid-move {
+  0% { 
+    transform: translate(0, 0); 
+  }
+  100% { 
+    transform: translate(14px, 24px); 
+  }
+}
+
+@keyframes scroll-indicator {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation Classes */
+.animate-float { 
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-random { 
+  animation: float-random 6s ease-in-out infinite;
+}
+
+.animate-float-gentle { 
+  animation: float-gentle 5s ease-in-out infinite;
+}
+
+.animate-float-slow { 
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-pulse-glow { 
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-pulse-slow { 
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.animate-fade-in-up { 
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-bounce-in { 
+  animation: bounce-in 0.6s ease-out forwards;
+}
+
+.animate-bounce-slow { 
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+.animate-slide-in-left { 
+  animation: slide-in-left 0.8s ease-out forwards;
+}
+
+.animate-slide-in-right { 
+  animation: slide-in-right 0.8s ease-out forwards;
+}
+
+.animate-typewriter { 
+  animation: typewriter 2s steps(40, end) forwards;
+}
+
+.animate-grid-move { 
+  animation: grid-move 20s linear infinite;
+}
+
+.animate-scroll-indicator { 
+  animation: scroll-indicator 2s ease-in-out infinite;
+}
+
+/* Enhanced Skill Card Animations */
+.skill-card:hover {
+  transform: perspective(1000px) rotateX(5deg) translateY(-10px);
+}
+
+.skill-category {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* Gradient Text Effects */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.category-title {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Interactive Hover Effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Staggered Animation Delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+
+/* Responsive Animation Adjustments */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Performance Optimizations */
+.animate-float,
+.animate-float-random,
+.animate-float-gentle,
+.animate-float-slow {
+  will-change: transform;
+}
+
+.animate-fade-in-up,
+.animate-slide-in-left,
+.animate-slide-in-right {
+  will-change: opacity, transform;
+}
+
+/* Custom Scrollbar for Better UX */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+</style> 
